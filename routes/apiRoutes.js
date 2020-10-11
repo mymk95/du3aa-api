@@ -11,13 +11,13 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/v2', du3aaController.random);
+router.get('/random', du3aaController.random);
 
-router.get('/v2/du3aa', du3aaController.index);
-router.get('/v2/du3aa/:du3aa_id', du3aaController.view);
+router.get('/prayer', du3aaController.index);
+router.get('/prayer/:du3aa_id', du3aaController.view);
 
-router.post('/v2/du3aa', authenticateToken, du3aaController.new);
-router.put('/v2/du3aa/:du3aa_id', authenticateToken, du3aaController.update);
-router.delete('/v2/du3aa/:du3aa_id', authenticateToken, du3aaController.delete);
+router.post('/prayer', authenticateToken, du3aaController.new);
+router.put('/prayer/:du3aa_id', authenticateToken, du3aaController.update);
+router.delete('/prayer/:du3aa_id', authenticateToken, du3aaController.delete);
 
 module.exports = router;

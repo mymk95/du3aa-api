@@ -17,6 +17,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
+
 app.use((err, req, res, next) => {
     res.status(500).send({
         status: 500,
@@ -24,7 +25,6 @@ app.use((err, req, res, next) => {
         message: err.message
     })
 })
-// app.use(express.static(path.join(__dirname, "public")))
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
@@ -35,10 +35,6 @@ var db = mongoose.connection;
 if(!db){
     console.log("Error connecting db");
 }
-
-// app.get("/", (req, res, next) => {
-//     // res.send('Welcome');
-// });
 
 app.use('/', apiRoutes);
 app.use('/auth', authRoutes);

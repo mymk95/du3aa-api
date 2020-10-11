@@ -1,7 +1,7 @@
 {
   "name": "du3aa-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Du3aaAPI App API endpoints",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

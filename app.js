@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
-const cookieParser = require('cookie-parser');
 const apiRoutes = require('./routes/apiRoutes');
 const authRoutes = require('./routes/authRoutes');
 const twitterRoutes = require('./routes/twitterRoutes');
@@ -15,7 +14,6 @@ const MONGODB_URI = process.env.MONGODB_URI;
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cookieParser());
 app.use(cors());
 
 app.use((err, req, res, next) => {

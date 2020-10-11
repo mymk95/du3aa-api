@@ -1,8 +1,10 @@
+require('dotenv').config();
 twitterModel = require('../models/twitterModel');
 const crypto = require('crypto');
 const uuid = require('uuid');
 const axios = require('axios');
 const qs = require('querystring');
+const DU_CLIENT = process.env.DU3AA_CLIENT
 
 exports.oauth = (req, res) => {
     const method = 'POST';
@@ -66,11 +68,11 @@ exports.oauth = (req, res) => {
 
 exports.callback = (req, res) => {
     if (Object.keys(req.query).length === 0) {
-        res.redirect('/');
+        res.redirect(DU_CLIENT);
         return
     }
     if (req.query.denied) {
-        res.cookie('status', 'canceled').redirect('/');
+        res.cookie('status', 'canceled').redirect(DU_CLIENT);
         return
     }
     const oauth_token = req.query.oauth_token;
@@ -86,7 +88,7 @@ exports.callback = (req, res) => {
 
             twitterModel.findOne({ user_id: data.user_id }).then(user => {
                 if (user) {
-                    res.cookie('status', 'userexsists').redirect('/');
+                    res.cookie('status', 'userexsists').redirect(DU_CLIENT);
                 }else{
                     twitter.oauth_token = data.oauth_token;
                     twitter.oauth_token_secret = data.oauth_token_secret;
@@ -95,10 +97,10 @@ exports.callback = (req, res) => {
                     
                     twitter.save(function (err) {
                         if (err){
-                            res.cookie('status', 'error').redirect('/');
+                            res.cookie('status', 'error').redirect(DU_CLIENT);
                             return
                         }else{
-                            res.cookie('status', 'useradded').redirect('/');
+                            res.cookie('status', 'useradded').redirect(DU_CLIENT);
                             return
                         }
                     });
@@ -106,7 +108,7 @@ exports.callback = (req, res) => {
             });
         })
         .catch(err => {
-            res.cookie('status', 'error').redirect('/');
+            res.cookie('status', 'error').redirect(DU_CLIENT);
             return
         })
 };

@@ -72,7 +72,7 @@ exports.callback = (req, res) => {
         return
     }
     if (req.query.denied) {
-        res.redirect(DU_CLIENT + "?canceled");
+        res.redirect(DU_CLIENT + "?status=canceled");
         return
     }
     const oauth_token = req.query.oauth_token;
@@ -88,7 +88,7 @@ exports.callback = (req, res) => {
 
             twitterModel.findOne({ user_id: data.user_id }).then(user => {
                 if (user) {
-                    res.redirect(DU_CLIENT + "?userexists");
+                    res.redirect(DU_CLIENT + "?status=userexists");
                 }else{
                     twitter.oauth_token = data.oauth_token;
                     twitter.oauth_token_secret = data.oauth_token_secret;
@@ -97,10 +97,10 @@ exports.callback = (req, res) => {
                     
                     twitter.save(function (err) {
                         if (err){
-                            res.redirect(DU_CLIENT + "?error");
+                            res.redirect(DU_CLIENT + "?status=error");
                             return
                         }else{
-                            res.redirect(DU_CLIENT + "?useradded");
+                            res.redirect(DU_CLIENT + "?status=useradded");
                             return
                         }
                     });
@@ -108,7 +108,7 @@ exports.callback = (req, res) => {
             });
         })
         .catch(err => {
-            res.redirect(DU_CLIENT + "?error");
+            res.redirect(DU_CLIENT + "?status=error");
             return
         })
 };

@@ -3,17 +3,16 @@ Du3aaAPI (this API is under development).
 Usage:
 
 METHOD  PATH                DESCRIPTION
-GET     /api                Shows this page
-GET     /api/v2             Returns one random du3aa
-GET     /api/v2/du3aa       Returns all du3aa's
-POST    /api/v2/du3aa       Creates du3aa
-GET     /api/v2/du3aa/:id   Returns a specific du3aa
-PUT     /api/v2/du3aa/:id   Updates a specific du3aa
-DELETE  /api/v2/du3aa/:id   Deletes a specific du3aa
+GET     /                   Shows this page
+GET     /random             Returns one random prayer
+GET     /prayer             Returns all prayers
+POST    /prayer             Creates a prayer
+GET     /prayer/:id         Returns a specific prayer
+PUT     /prayer/:id         Updates a specific prayer
+DELETE  /prayer/:id         Deletes a specific prayer
 
 Params are under development.
 
 Home page           : https://du3aa.rest
-Documentaion (ud)   : https://docs.du3aa.rest
 App Twitter         : https://twitter.com/du3aaAPI
 Developer Twitter   : https://twitter.com/M_filkawi

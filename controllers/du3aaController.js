@@ -145,3 +145,13 @@ exports.delete = function (req, res) {
         }
     });
 };
+
+exports.count = (req, res) => {
+    Du3aaModel.find().countDocuments()
+    .then(count => {
+        res.send({count});
+    })
+    .catch(err => {
+        console.log(err);
+    });
+};

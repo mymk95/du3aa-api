@@ -13,6 +13,8 @@ router.get('/', (req, res) => {
 
 router.get('/random', du3aaController.random);
 
+router.get('/count', du3aaController.count);
+
 router.get('/prayer', du3aaController.index);
 router.get('/prayer/:du3aa_id', du3aaController.view);
 

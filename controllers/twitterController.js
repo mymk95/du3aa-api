@@ -138,11 +138,20 @@ exports.index = function (req, res) {
                     message: "No data"
                 });
             }else{
+                var arr =[]
+                subs.forEach(sub => {
+                    arr.push({
+                        "id": sub._id,
+                        "user_id": sub.user_id,
+                        "screen_name": sub.screen_name,
+                        "subscription_date": sub.createdAt
+                    })
+                });
                 res.json({
                     status: 200,
                     statusText: "success",
                     count: subs.length,
-                    data: subs
+                    data: arr
                 });
             }
         }

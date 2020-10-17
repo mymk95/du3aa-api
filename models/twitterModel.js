@@ -20,3 +20,7 @@ var twitterSchema = new mongoose.Schema({
 }, {timestamps: true});
 
 module.exports = mongoose.model('twitter', twitterSchema);
+
+module.exports.get = function (callback, limit) {
+    twitterModel.find(callback).limit(limit);
+}

@@ -123,6 +123,32 @@ exports.count = (req, res) => {
     });
 };
 
+exports.index = function (req, res) {
+    twitterModel.get(function (err, subs) {
+        if (err) {
+            res.json({
+                statusText: "error",
+                message: err,
+            });
+        }else{
+            if (subs === undefined || subs.length == 0) {
+                res.json({
+                    status: 200,
+                    statusText: "success",
+                    message: "No data"
+                });
+            }else{
+                res.json({
+                    status: 200,
+                    statusText: "success",
+                    count: subs.length,
+                    data: subs
+                });
+            }
+        }
+    });
+};
+
 function TwitterOAuthURL(res){
     var oauth_token = qs.decode(res).oauth_token;
     return `https://api.twitter.com/oauth/authorize?oauth_token=${oauth_token}`;

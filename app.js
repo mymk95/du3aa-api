@@ -1,11 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const path = require('path');
 const cors = require('cors');
 const apiRoutes = require('./routes/apiRoutes');
 const authRoutes = require('./routes/authRoutes');
-const twitterRoutes = require('./routes/twitterRoutes');
 require('dotenv').config()
 
 const PORT = process.env.PORT || 3000;
@@ -36,7 +34,6 @@ if(!db){
 
 app.use('/', apiRoutes);
 app.use('/auth', authRoutes);
-app.use('/twitter', twitterRoutes);
 
 app.use(function(req, res, next){
     res.status(404).send({ 

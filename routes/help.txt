@@ -10,14 +10,14 @@ GET     /prayer             Returns all prayers
 GET     /prayer/:id         Returns a specific prayer
 GET     /count              Returns number of prayer
 
-::: BELOW REQUIRES AUTHENTICATION :::
+::: BELOW END-POINTS REQUIRE AUTHENTICATION :::
 
 POST    /prayer             Creates a prayer
 PUT     /prayer/:id         Updates a specific prayer
 DELETE  /prayer/:id         Deletes a specific prayer
 
-Params are under-development.
 
-Home page           : https://du3aa.rest
-App Twitter         : https://twitter.com/du3aaAPI
-Developer Twitter   : https://twitter.com/M_filkawi
+Home page                   https://du3aa.rest
+Documentation               Under-development
+App Twitter                 https://twitter.com/du3aaAPI
+Developer Twitter           https://twitter.com/M_filkawi

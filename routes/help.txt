@@ -1,4 +1,4 @@
-Du3aaAPI (under-development).
+Du3aaAPI v2.0.0
 
 Usage:
 

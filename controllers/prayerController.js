@@ -1,7 +1,7 @@
-const Du3aaModel = require('../models/du3aaModel')
+const PrayerModel = require('../models/prayerModel')
 
 exports.index = function (req, res) {
-  Du3aaModel.get(function (err, du3aas) {
+  PrayerModel.get(function (err, du3aas) {
     if (err) {
       res.json({
         statusText: 'error',
@@ -27,7 +27,7 @@ exports.index = function (req, res) {
 }
 
 exports.random = function (req, res) {
-  Du3aaModel.get(function (err, du3aas) {
+  PrayerModel.get(function (err, du3aas) {
     if (err) {
       res.json({
         statusText: 'error',
@@ -52,7 +52,7 @@ exports.random = function (req, res) {
 }
 
 exports.new = function (req, res) {
-  const du3aa = new Du3aaModel()
+  const du3aa = new PrayerModel()
 
   du3aa.du3aa = req.body.du3aa
 
@@ -74,7 +74,7 @@ exports.new = function (req, res) {
 }
 
 exports.view = function (req, res) {
-  Du3aaModel.findById(req.params.du3aa_id, function (err, du3aa) {
+  PrayerModel.findById(req.params.du3aa_id, function (err, du3aa) {
     if (err) {
       res.json({
         statusText: 'error',
@@ -99,7 +99,7 @@ exports.view = function (req, res) {
 }
 
 exports.update = function (req, res) {
-  Du3aaModel.findById(req.params.du3aa_id, function (err, du3aa) {
+  PrayerModel.findById(req.params.du3aa_id, function (err, du3aa) {
     if (err) {
       res.json({
         statusText: 'error',
@@ -128,7 +128,7 @@ exports.update = function (req, res) {
 }
 
 exports.delete = function (req, res) {
-  Du3aaModel.deleteOne({
+  PrayerModel.deleteOne({
     _id: req.params.du3aa_id
   }, function (err, du3aa) {
     if (err) {
@@ -147,7 +147,7 @@ exports.delete = function (req, res) {
 }
 
 exports.count = (req, res) => {
-  Du3aaModel.find().countDocuments()
+  PrayerModel.find().countDocuments()
     .then(count => {
       res.send({ count })
     })

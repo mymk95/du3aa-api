@@ -7,9 +7,9 @@ const prayerSchema = new mongoose.Schema({
   }
 })
 
-const Du3aaModel = module.exports = mongoose.model('du3aa', prayerSchema)
-module.exports = mongoose.model('du3aa', prayerSchema)
+const PrayerModel = module.exports = mongoose.model('prayer', prayerSchema)
+module.exports = mongoose.model('prayer', prayerSchema)
 
 module.exports.get = function (callback, limit) {
-  Du3aaModel.find(callback).limit(limit)
+  PrayerModel.find(callback).limit(limit)
 }

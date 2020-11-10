@@ -99,16 +99,16 @@ exports.view = function (req, res) {
 }
 
 exports.update = function (req, res) {
-  PrayerModel.findById(req.params.du3aa_id, function (err, du3aa) {
+  PrayerModel.findById(req.params.prayer_id, function (err, prayer) {
     if (err) {
       res.json({
         statusText: 'error',
         message: err
       })
     } else {
-      du3aa.du3aa = req.body.du3aa
+      prayer.prayer = req.body.prayer
 
-      du3aa.save(function (err) {
+      prayer.save(function (err) {
         if (err) {
           res.json({
             statusText: 'error',
@@ -118,8 +118,8 @@ exports.update = function (req, res) {
           res.json({
             status: 200,
             statusText: 'success',
-            message: 'du3aa updated',
-            data: du3aa
+            message: 'prayer updated',
+            data: prayer
           })
         }
       })

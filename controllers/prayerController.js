@@ -74,14 +74,14 @@ exports.new = function (req, res) {
 }
 
 exports.view = function (req, res) {
-  PrayerModel.findById(req.params.du3aa_id, function (err, du3aa) {
+  PrayerModel.findById(req.params.prayer_id, function (err, prayer) {
     if (err) {
       res.json({
         statusText: 'error',
         message: err
       })
     } else {
-      if (du3aa == null) {
+      if (prayer == null) {
         res.json({
           status: 200,
           statusText: 'success',
@@ -91,7 +91,7 @@ exports.view = function (req, res) {
         res.json({
           status: 200,
           statusText: 'success',
-          data: du3aa
+          data: prayer
         })
       }
     }

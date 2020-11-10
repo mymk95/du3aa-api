@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const prayerSchema = new mongoose.Schema({
-  du3aa: {
+  prayer: {
     type: String,
     required: true
   }

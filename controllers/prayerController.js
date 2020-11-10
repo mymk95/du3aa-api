@@ -129,8 +129,8 @@ exports.update = function (req, res) {
 
 exports.delete = function (req, res) {
   PrayerModel.deleteOne({
-    _id: req.params.du3aa_id
-  }, function (err, du3aa) {
+    _id: req.params.prayer_id
+  }, function (err, prayer) {
     if (err) {
       res.json({
         statusText: 'error',
@@ -140,7 +140,7 @@ exports.delete = function (req, res) {
       res.json({
         status: 200,
         statusText: 'success',
-        message: 'Du3aa deleted'
+        message: 'Prayer deleted'
       })
     }
   })

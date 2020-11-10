@@ -1,14 +1,14 @@
-const Du3aaModel = require('../models/du3aaModel')
+const PrayerModel = require('../models/prayerModel')
 
 exports.index = function (req, res) {
-  Du3aaModel.get(function (err, du3aas) {
+  PrayerModel.get(function (err, prayers) {
     if (err) {
       res.json({
         statusText: 'error',
         message: err
       })
     } else {
-      if (du3aas === undefined || du3aas.length === 0) {
+      if (prayers === undefined || prayers.length === 0) {
         res.json({
           status: 200,
           statusText: 'success',
@@ -18,8 +18,8 @@ exports.index = function (req, res) {
         res.json({
           status: 200,
           statusText: 'success',
-          count: du3aas.length,
-          data: du3aas
+          count: prayers.length,
+          data: prayers
         })
       }
     }
@@ -27,24 +27,24 @@ exports.index = function (req, res) {
 }
 
 exports.random = function (req, res) {
-  Du3aaModel.get(function (err, du3aas) {
+  PrayerModel.get(function (err, prayers) {
     if (err) {
       res.json({
         statusText: 'error',
         message: err
       })
     } else {
-      if (du3aas === undefined || du3aas.length === 0) {
+      if (prayers === undefined || prayers.length === 0) {
         res.json({
           status: 200,
           statusText: 'success',
           message: 'No data'
         })
       } else {
-        const random = Math.floor(Math.random() * du3aas.length)
-        const du3aa = du3aas[random].du3aa
+        const random = Math.floor(Math.random() * prayers.length)
+        const prayer = prayers[random].prayer
         res.json({
-          du3aa
+          prayer
         })
       }
     }
@@ -52,11 +52,11 @@ exports.random = function (req, res) {
 }
 
 exports.new = function (req, res) {
-  const du3aa = new Du3aaModel()
+  const prayer = new PrayerModel()
 
-  du3aa.du3aa = req.body.du3aa
+  prayer.prayer = req.body.prayer
 
-  du3aa.save(function (err) {
+  prayer.save(function (err) {
     if (err) {
       res.json({
         statusText: 'error',
@@ -66,22 +66,22 @@ exports.new = function (req, res) {
       res.json({
         status: 200,
         statusText: 'success',
-        message: 'New du3aa created',
-        data: du3aa
+        message: 'New prayer created',
+        data: prayer
       })
     }
   })
 }
 
 exports.view = function (req, res) {
-  Du3aaModel.findById(req.params.du3aa_id, function (err, du3aa) {
+  PrayerModel.findById(req.params.prayer_id, function (err, prayer) {
     if (err) {
       res.json({
         statusText: 'error',
         message: err
       })
     } else {
-      if (du3aa == null) {
+      if (prayer == null) {
         res.json({
           status: 200,
           statusText: 'success',
@@ -91,7 +91,7 @@ exports.view = function (req, res) {
         res.json({
           status: 200,
           statusText: 'success',
-          data: du3aa
+          data: prayer
         })
       }
     }
@@ -99,16 +99,16 @@ exports.view = function (req, res) {
 }
 
 exports.update = function (req, res) {
-  Du3aaModel.findById(req.params.du3aa_id, function (err, du3aa) {
+  PrayerModel.findById(req.params.prayer_id, function (err, prayer) {
     if (err) {
       res.json({
         statusText: 'error',
         message: err
       })
     } else {
-      du3aa.du3aa = req.body.du3aa
+      prayer.prayer = req.body.prayer
 
-      du3aa.save(function (err) {
+      prayer.save(function (err) {
         if (err) {
           res.json({
             statusText: 'error',
@@ -118,8 +118,8 @@ exports.update = function (req, res) {
           res.json({
             status: 200,
             statusText: 'success',
-            message: 'du3aa updated',
-            data: du3aa
+            message: 'prayer updated',
+            data: prayer
           })
         }
       })
@@ -128,9 +128,9 @@ exports.update = function (req, res) {
 }
 
 exports.delete = function (req, res) {
-  Du3aaModel.deleteOne({
-    _id: req.params.du3aa_id
-  }, function (err, du3aa) {
+  PrayerModel.deleteOne({
+    _id: req.params.prayer_id
+  }, function (err, prayer) {
     if (err) {
       res.json({
         statusText: 'error',
@@ -140,14 +140,14 @@ exports.delete = function (req, res) {
       res.json({
         status: 200,
         statusText: 'success',
-        message: 'Du3aa deleted'
+        message: 'Prayer deleted'
       })
     }
   })
 }
 
 exports.count = (req, res) => {
-  Du3aaModel.find().countDocuments()
+  PrayerModel.find().countDocuments()
     .then(count => {
       res.send({ count })
     })

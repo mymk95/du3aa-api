@@ -9,7 +9,7 @@ const chaiHttp = require('chai-http')
 const expect = chai.expect
 chai.use(chaiHttp)
 const app = require('../app')
-const du3aa = require('../models/du3aaModel')
+const prayer = require('../models/prayerModel')
 const users = require('../models/userModel')
 
 // for testing
@@ -70,7 +70,7 @@ describe('du3aaAPI endpoints', () => {
         .request(app)
         .get('/random')
 
-      expect(res.body.du3aa).to.not.be.empty
+      expect(res.body.prayer).to.not.be.empty
     })
 
     it('get all prayers', async () => {
@@ -87,11 +87,11 @@ describe('du3aaAPI endpoints', () => {
         .request(app)
         .post('/prayer')
         .set('authorization', `Bearer ${token}`)
-        .send({ du3aa: 'test' })
+        .send({ prayer: 'test' })
 
       expect(res.body.status).to.equal(200)
       expect(res.body.statusText).to.equal('success')
-      expect(res.body.message).to.equal('New du3aa created')
+      expect(res.body.message).to.equal('New prayer created')
       expect(res.body.data).to.be.an('object')
 
       id = res.body.data._id
@@ -102,11 +102,11 @@ describe('du3aaAPI endpoints', () => {
         .request(app)
         .put('/prayer/' + id)
         .set('authorization', `Bearer ${token}`)
-        .send({ du3aa: 'test2' })
+        .send({ prayer: 'test2' })
 
       expect(res.body.status).to.equal(200)
       expect(res.body.statusText).to.equal('success')
-      expect(res.body.message).to.equal('du3aa updated')
+      expect(res.body.message).to.equal('prayer updated')
       expect(res.body.data).to.be.an('object')
     })
 
@@ -136,12 +136,12 @@ describe('du3aaAPI endpoints', () => {
 
       expect(res.body.status).to.equal(200)
       expect(res.body.statusText).to.equal('success')
-      expect(res.body.message).to.equal('Du3aa deleted')
+      expect(res.body.message).to.equal('Prayer deleted')
     })
   })
 
   after(async () => {
     await users.deleteOne({ username: 'test' })
-    await du3aa.deleteOne({ _id: id })
+    await prayer.deleteOne({ _id: id })
   })
 })

@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const du3aaController = require('../controllers/du3aaController')
+const prayerController = require('../controllers/prayerController')
 const authenticateToken = require('../middleware/jwt')
 const fs = require('fs')
 
@@ -11,15 +11,15 @@ router.get('/', (req, res) => {
   })
 })
 
-router.get('/random', du3aaController.random)
+router.get('/random', prayerController.random)
 
-router.get('/count', du3aaController.count)
+router.get('/count', prayerController.count)
 
-router.get('/prayer', du3aaController.index)
-router.get('/prayer/:du3aa_id', du3aaController.view)
+router.get('/prayer', prayerController.index)
+router.get('/prayer/:prayer_id', prayerController.view)
 
-router.post('/prayer', authenticateToken, du3aaController.new)
-router.put('/prayer/:du3aa_id', authenticateToken, du3aaController.update)
-router.delete('/prayer/:du3aa_id', authenticateToken, du3aaController.delete)
+router.post('/prayer', authenticateToken, prayerController.new)
+router.put('/prayer/:prayer_id', authenticateToken, prayerController.update)
+router.delete('/prayer/:prayer_id', authenticateToken, prayerController.delete)
 
 module.exports = router

@@ -1,12 +1,12 @@
 {
   "name": "du3aa-api",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Du3aaAPI App API endpoints",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "mocha"
+    "test": "mocha --exit"
   },
   "author": "Mohammad Khatem",
   "license": "ISC",

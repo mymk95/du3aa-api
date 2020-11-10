@@ -1,14 +1,14 @@
 const PrayerModel = require('../models/prayerModel')
 
 exports.index = function (req, res) {
-  PrayerModel.get(function (err, du3aas) {
+  PrayerModel.get(function (err, prayers) {
     if (err) {
       res.json({
         statusText: 'error',
         message: err
       })
     } else {
-      if (du3aas === undefined || du3aas.length === 0) {
+      if (prayers === undefined || prayers.length === 0) {
         res.json({
           status: 200,
           statusText: 'success',
@@ -18,8 +18,8 @@ exports.index = function (req, res) {
         res.json({
           status: 200,
           statusText: 'success',
-          count: du3aas.length,
-          data: du3aas
+          count: prayers.length,
+          data: prayers
         })
       }
     }
@@ -27,24 +27,24 @@ exports.index = function (req, res) {
 }
 
 exports.random = function (req, res) {
-  PrayerModel.get(function (err, du3aas) {
+  PrayerModel.get(function (err, prayers) {
     if (err) {
       res.json({
         statusText: 'error',
         message: err
       })
     } else {
-      if (du3aas === undefined || du3aas.length === 0) {
+      if (prayers === undefined || prayers.length === 0) {
         res.json({
           status: 200,
           statusText: 'success',
           message: 'No data'
         })
       } else {
-        const random = Math.floor(Math.random() * du3aas.length)
-        const du3aa = du3aas[random].du3aa
+        const random = Math.floor(Math.random() * prayers.length)
+        const prayer = prayers[random].prayer
         res.json({
-          du3aa
+          prayer
         })
       }
     }

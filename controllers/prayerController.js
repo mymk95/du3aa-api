@@ -52,11 +52,11 @@ exports.random = function (req, res) {
 }
 
 exports.new = function (req, res) {
-  const du3aa = new PrayerModel()
+  const prayer = new PrayerModel()
 
-  du3aa.du3aa = req.body.du3aa
+  prayer.prayer = req.body.prayer
 
-  du3aa.save(function (err) {
+  prayer.save(function (err) {
     if (err) {
       res.json({
         statusText: 'error',
@@ -66,8 +66,8 @@ exports.new = function (req, res) {
       res.json({
         status: 200,
         statusText: 'success',
-        message: 'New du3aa created',
-        data: du3aa
+        message: 'New prayer created',
+        data: prayer
       })
     }
   })

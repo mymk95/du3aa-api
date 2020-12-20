@@ -30,7 +30,7 @@ async function handleRequest(request) {
     }
 
     const prayer = JSON.parse(
-      await (await fetch('https://raw.githubusercontent.com/mymk95/du3aa-api/workers/prayers.json')).text()
+      await (await fetch('https://raw.githubusercontent.com/mymk95/du3aa-api/prayers/prayers.json')).text()
     )
     const randomPrayer = prayer[Math.floor(Math.random() * prayer.length)]
 

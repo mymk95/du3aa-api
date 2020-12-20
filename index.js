@@ -7,8 +7,11 @@ addEventListener('fetch', event => {
  * @param {Request} request
  */
 async function handleRequest(request) {
-
   try {
+    const headers = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET',
+    }
     const url = new URL(request.url)
     var formatParameter = null
 
@@ -19,8 +22,7 @@ async function handleRequest(request) {
         return new Response(JSON.stringify({ status: 400, error: 'Invalid format parameter' }), {
           status: 400,
           headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET',
+            ...headers,
             'Content-Type': 'application/json'
           }
         })
@@ -36,8 +38,7 @@ async function handleRequest(request) {
       return new Response(randomPrayer, {
         status: 200,
         headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET',
+          ...headers,
           'Content-Type': 'text/plain;charset=utf-8'
         }
       })
@@ -45,22 +46,19 @@ async function handleRequest(request) {
       return new Response(JSON.stringify({ prayer: randomPrayer }), {
         status: 200,
         headers: { 
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET',
+          ...headers,
           'Content-Type': 'application/json'
         },
       })
     }
 
   } catch (error) {
-    return new Response(JSON.stringify({ status: '500', error: 'Internal Server Error' }), {
+    return new Response(JSON.stringify({ status: 500, error: 'Internal Server Error' }), {
       status: 500,
       headers: { 
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET',
+        ...headers,
         'Content-Type': 'application/json'
       },
     })
   }
-
 }

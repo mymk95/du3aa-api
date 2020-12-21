@@ -2,7 +2,7 @@
 
 <p align="center">Du3aaAPI is a free API service that provides Islamic prayers</p>
 
-<div style="text-align:center"><img src="https://img.shields.io/github/package-json/v/mymk95/du3aa-api" /> <img src="https://img.shields.io/github/v/release/mymk95/du3aa-api" /></div>
+<p align="center"><img src="https://img.shields.io/github/package-json/v/mymk95/du3aa-api" /> <img src="https://img.shields.io/github/v/release/mymk95/du3aa-api" /></p>
 
 ---
 

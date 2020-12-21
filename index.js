@@ -19,7 +19,7 @@ async function handleRequest(request) {
       formatParameter = url.searchParams.get('format').toLocaleLowerCase().split('/')[0]
 
       if (formatParameter !== 'json' && formatParameter !== 'text') {
-        return new Response(JSON.stringify({ status: 400, error: 'Invalid format parameter' }), {
+        return new Response(JSON.stringify({ status: 400, error: 'Invalid Format Parameter' }), {
           status: 400,
           headers: {
             ...headers,

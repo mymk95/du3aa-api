@@ -39,7 +39,7 @@ async function handleRequest(request) {
         status: 200,
         headers: {
           ...headers,
-          'Content-Type': 'text/plain;charset=utf-8'
+          'Content-Type': 'text/plain; charset=utf-8'
         }
       })
     } else {
@@ -47,7 +47,7 @@ async function handleRequest(request) {
         status: 200,
         headers: { 
           ...headers,
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json; charset=utf-8'
         },
       })
     }

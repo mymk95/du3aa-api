@@ -1,34 +1,11 @@
 {
   "name": "du3aa-api",
-  "version": "2.0.1",
-  "description": "Du3aaAPI App API endpoints",
-  "main": "app.js",
+  "version": "3.1.1",
+  "description": "A free API service that provides random prayers",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "mocha --exit"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Mohammad Khatem",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "crypto": "^1.0.1",
-    "dotenv": "^8.2.0",
-    "express": "^4.16.4",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.16",
-    "process-nextick-args": "^2.0.1",
-    "readable-stream": "^3.6.0",
-    "uuid": "^8.1.0"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
-    "mocha": "^8.2.0",
-    "nodemon": "^2.0.4",
-    "supertest": "^6.0.0"
-  }
+  "author": "mymk95 <m.filkawi@gmail.com>",
+  "license": "MIT"
 }

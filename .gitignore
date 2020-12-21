@@ -3,4 +3,13 @@ node_modules
 package-lock.json
 *.rest
 .DS_Store
+/target
+/dist
+**/*.rs.bk
+Cargo.lock
+bin/
+pkg/
+wasm-pack.log
+worker/
+.cargo-ok
 *.toml

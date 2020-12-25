@@ -1,11 +1,10 @@
-'''
-fliter.py
-Removes duplicated prayers and whitespaces in prayers.json
-'''
-
 import json
 
 def filter():
+  '''
+  Removes duplicated prayers and whitespaces in prayers.json
+  '''
+
   with open('prayers.json') as f:
     data = json.load(f)
 
@@ -20,6 +19,10 @@ def filter():
     json.dump(filtered_ws, json_file, ensure_ascii = False, indent = 2)
 
 def add(prayer):
+  '''
+  Add a new prayer to prayers.json
+  '''
+
   with open('prayers.json') as f:
     data = json.load(f)
   
